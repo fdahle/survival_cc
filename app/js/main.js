@@ -29,6 +29,11 @@ async function init_page() {
     console.log("TODO: ADD warning message");
   }
 
+  //add event listener to resize
+  window.addEventListener('resize', function(event) {
+    set_pos_of_menus();
+  }, true);
+
 }
 
 //function to create the initial map with all settings
@@ -144,6 +149,8 @@ function set_markers_and_popups() {
   for (var key in json_runs) {
     let run = json_runs[key];
 
+    console.log(run);
+
     if (Object.keys(run)[0] == "za") {
       run = run["za"]
     }
@@ -221,7 +228,10 @@ function set_markers_and_popups() {
     //add inschrijflink
     var pop_div_subscribe = document.createElement("div")
     pop_div_subscribe.classList.add("div_pop_big")
-    if (run["inschrijfstate"] == "gesloten"){
+    if (run["cancelled"]){
+      pop_div_subscribe.innerHTML = "Cancelled!"
+      pop_div_subscribe.style.color = "red"
+    } else if (run["inschrijfstate"] == "gesloten"){
       pop_div_subscribe.innerHTML = "Subscription closed!"
       pop_div_subscribe.style.color = "red"
     } else if (run["inschrijfstate"].length == 1){
@@ -257,7 +267,9 @@ function set_markers_and_popups() {
 
     //get the right marker colour
     var icon_col = "orange"
-    if (run["inschrijfstate"] == ">schrijf hier in<" || run["inschrijfstate"].startsWith("tot ")){
+    if (run["cancelled"]){
+      var icon_col = "gray"
+    } else if (run["inschrijfstate"] == ">schrijf hier in<" || run["inschrijfstate"].startsWith("tot ")){
       var icon_col = "green"
     } else if (run["inschrijfstate"] == "gesloten") {
       var icon_col = "red"
@@ -459,22 +471,51 @@ function select_searchbar_entry(e){
 
 }
 
-function open_menu(){
+function open_menu(menu_type){
 
-  var menu = document.getElementById("div_filters");
+  if (menu_type == "filter"){
+    var menu = document.getElementById("div_filters");
+  } else if (menu_type == "help"){
+    var menu = document.getElementById("div_help");
+  }
+
+  //remove the hidden to make the menu visible
   menu.classList.remove("hidden")
 
+  //set the right position of the menu
+  set_pos_of_menus();
+
+  //make also the overlay visible
   var overlay = document.getElementById("div_overlay");
   overlay.classList.remove("hidden")
 
 }
 
 function close_menu(){
-  var menu = document.getElementById("div_filters");
-  menu.classList.add("hidden")
+
+  // get all menus
+  const collection = document.getElementsByClassName("div_menu");
+
+  for (var menu of collection){
+    //add hidden
+    menu.classList.add("hidden")
+  }
 
   var overlay = document.getElementById("div_overlay");
   overlay.classList.add("hidden")
+
+}
+
+function set_pos_of_menus(){
+
+  // get all menus
+  const collection = document.getElementsByClassName("div_menu");
+
+  for (var menu of collection){
+    //get the menu width and set left
+    var menu_width = parseInt(menu.offsetWidth/2);
+    menu.style.left = "calc(50% - " + menu_width + "px)"
+  }
 
 }
 

@@ -1,4 +1,6 @@
 
+/* general settings */
+
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0px;
@@ -24,6 +26,8 @@ textarea:focus, input:focus{
     100% { right: -5px; }
 }
 
+/* setting for the map */
+
 #div_map{
   display: block;
   position: absolute;
@@ -31,6 +35,8 @@ textarea:focus, input:focus{
   width: 100%;
   z-index: 0
 }
+
+/* setting for the elements on the map */
 
 #div_searchbar{
   display: block;
@@ -46,6 +52,35 @@ textarea:focus, input:focus{
   width: calc(100%);
   height: 100%;
 }
+
+.div_button_map{
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 2px solid rgba(0,0,0,0.3);
+  border-radius: 2px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.div_button_map:hover{
+  background-color: #e9e9e9;
+}
+
+#div_hamburger{
+  right: 10px;
+  top: 10px;
+}
+
+#div_question{
+  left: 10px;
+  top: 80px;
+}
+
+/* setting for the autocomplete_box */
 
 #autocomplete_box{
   width: calc(100% - 2px);
@@ -68,40 +103,7 @@ textarea:focus, input:focus{
   background-color: #e9e9e9;
 }
 
-#div_hamburger{
-  display: block;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  right: 10px;
-  top: 10px;
-  background-color: white;
-  border: 2px solid rgba(0,0,0,0.3);
-  border-radius: 2px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-}
-
-#div_hamburger:hover{
-  background-color: #e9e9e9;
-}
-
-#div_question{
-  display: block;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 10px;
-  top: 80px;
-  background-color: white;
-  border: 2px solid rgba(0,0,0,0.3);
-  border-radius: 2px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-}
-
+/* setting for the marker popup */
 
 .div_pop_title{
   font-weight: bold;
@@ -131,37 +133,75 @@ textarea:focus, input:focus{
   text-align: center;
 }
 
-#div_filters{
+/* setting for the big menus */
+
+.div_menu{
   display: block;
   position: absolute;
   height: auto;
   width: calc(90% - 22px);
-  max-height: 500px;
+  max-height: calc(90% - 90px);
+  min-height: 200px;
   max-width: 500px;
-  top: 120px;
-  left: 5%;
-  padding: 10px;
+  min-width: 200px;
+  top: 50px;
+  /*left: ; calculated with js, as this must be dynamic*/
   background-color: white;
   border: 1px solid lightgray;
-  z-index: 100
+  z-index: 100;
+  padding: 10px;
+  overflow-y: auto;
 }
+
+.div_menu_title{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.div_menu_suptitle{
+  margin-top: 9px;
+  font-size: 18px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+}
+
+.div_menu_text{
+  font-size: 15px;
+}
+
+.div_menu_text_divider{
+  display: block;
+  height: 10px;
+}
+
+/* setting for the filter menu */
 
 #div_filter_buttons{
   margin-top: 10px;
 }
 
-.div_filter_title{
-  font-weight: bold;
-  font-size: 22px;
+/* setting for the help menu */
+
+.div_legend_entry{
+  display: inline-flex;
+  width: 100%;
 }
 
-.div_filter_suptitle{
-  margin-top: 9px;
-  font-size: 18px;
-  width: 100%;
-  border-bottom: 1px solid lightgray;
-  margin-bottom: 3px;
+.div_legend_entry img{
+  padding-left: 10px;
 }
+
+.div_legend_entry div{
+  line-height: 33px;
+  padding-left: 15px;
+}
+
+#div_help_confirmation{
+  margin-top: 15px;
+}
+
+/* setting for the overlay */
 
 #div_overlay{
   display: block;

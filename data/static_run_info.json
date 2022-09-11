@@ -5,8 +5,8 @@
     "coordinates": [51.21007038187108, 3.5038892384735765]
   },
   "Bathmen": {
-    "association": "Schip Beek Survival Run",
-    "run_name": "Survival Vereniging Bathmen",
+    "association": "Survival Vereniging Bathmen",
+    "run_name": "Schip Beek Survival Run",
     "coordinates": [52.246660195214716, 6.279094963711562]
   },
   "Beltrum": {
@@ -61,17 +61,17 @@
   },
   "Elst": {
     "association": "Survival Lingezegen",
-    "run_name": "",
+    "run_name": "Survivalrun Lingezegen",
     "coordinates": [51.94315537078318, 5.863293683100856]
   },
   "Enschede_1": {
     "association": "Rutbeek Survivalvereniging",
-    "run_name": "",
+    "run_name": "Rutbeek Survivalrun",
     "coordinates": [52.17964278630361, 6.830735323750876]
   },
   "Enschede_2": {
     "association": "D.S.S.V. Tartaros",
-    "run_name": "",
+    "run_name": "Tartaros Campus Challenge",
     "coordinates": [52.240969944341316, 6.852456264349519]
   },
   "Gendringen": {
@@ -86,17 +86,17 @@
   },
   "Grootebroek": {
     "association": "SSV STREKER SURVIVALRUN VERENIGING",
-    "run_name": "",
+    "run_name": "Oerbos Survivalrun",
     "coordinates": [52.69375760447761, 5.216058869129106]
   },
   "Harreveld": {
     "association": "Stichting Survival Harreveld",
-    "run_name": "",
+    "run_name": "Survivalrun Harreveld",
     "coordinates": [51.98022460263487, 6.5162738388181225]
   },
   "Havelte": {
     "association": "Survivalrun Havelte",
-    "run_name": "",
+    "run_name": "Havelter Survivalrun",
     "coordinates": [52.77173153923626, 6.236187271640047]
   },
   "Kollumerzwaag": {
@@ -110,9 +110,9 @@
     "coordinates": [53.21153645570199, 6.094036142369739]
   },
   "Leeuwarden": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "Survivalvereniging Leeuwarden",
+    "run_name": "Bikkelrun",
+    "coordinates": [53.2146423679129, 5.873229396232842]
   },
   "Loil": {
     "association": "Stichting Sportieve Activiteiten Loil",
@@ -135,13 +135,13 @@
     "coordinates": [51.81891203215059, 5.867562292579628]
   },
   "Norg": {
-    "association": "",
-    "run_name": "",
+    "association": "Survival Norg",
+    "run_name": "Survivalrun Norg",
     "coordinates": [53.06764052337201, 6.46345711341784]
   },
   "Oldenzaal": {
-    "association": "",
-    "run_name": "",
+    "association": "Clinic Survival",
+    "run_name": "Outdoor Challenge Run",
     "coordinates": [52.302831700775954, 6.890245815762174]
   },
   "Rotterdam": {
