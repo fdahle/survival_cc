@@ -34,6 +34,17 @@ async function init_page() {
     set_pos_of_menus();
   }, true);
 
+  //check if we should hide the help site
+  var show_help = get_cookie('show_help');
+  console.log(show_help);
+  if (show_help == 'true'){
+    document.getElementById("div_help").classList.remove("hidden");
+    document.getElementById("div_overlay").classList.remove("hidden");
+    set_pos_of_menus();
+  } else {
+    document.getElementById("check_no_show_help").checked = true;
+  }
+
 }
 
 //function to create the initial map with all settings
@@ -393,9 +404,15 @@ function handle_searchbar(e) {
     for (var key in dataArr["runs"]) {
 
       //get the values we want to check
-      var city = dataArr["runs"][key]["city"]
-      var association = dataArr["runs"][key]["association"]
-      var run_name = dataArr["runs"][key]["run_name"]
+      if (Object.keys(dataArr["runs"][key])[0] == "za"){
+        var city = dataArr["runs"][key]["za"]["city"]
+        var association = dataArr["runs"][key]["za"]["association"]
+        var run_name = dataArr["runs"][key]["za"]["run_name"]
+      } else {
+        var city = dataArr["runs"][key]["city"]
+        var association = dataArr["runs"][key]["association"]
+        var run_name = dataArr["runs"][key]["run_name"]
+      }
 
       //we have a match! -> add to the matching keys
       if (run_name != undefined && run_name.toLowerCase().includes(val.toLowerCase())) {
@@ -521,4 +538,25 @@ function set_pos_of_menus(){
 
 function filter_values(){
 
+}
+
+function change_cookie(cookie_val){
+
+  if (cookie_val == 'auto_show_help'){
+    var check_val = document.getElementById("check_no_show_help").checked;
+    if (check_val){
+      document.cookie = "show_help=false;expires='Thu, 01 Jan 2025 04:14:07 GMT";
+    } else {
+      document.cookie = "show_help=true;expires='Thu, 01 Jan 2025 04:14:07 GMT'";
+    }
+  }
+}
+
+function get_cookie(cookieName) {
+  let cookie = {};
+  document.cookie.split(';').forEach(function(el) {
+    let [key,value] = el.split('=');
+    cookie[key.trim()] = value;
+  })
+  return cookie[cookieName];
 }

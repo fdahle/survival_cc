@@ -191,9 +191,14 @@
     </div>
     <div id="div_help_confirmation">
       <input type="checkbox"
-        id="check_show_help_again"
-        name="show_help_again">
+        id="check_no_show_help"
+        name="show_help_again"
+        onchange="change_cookie('auto_show_help')">
       <label for="show_help_again">I don't want to see this again at startup</label><br>
+    <div id="div_help_buttons">
+        <button onclick="close_menu()">Close</button>
+      </div>
+
     </div>
 
 

@@ -1,34 +1,59 @@
-
 /* general settings */
-
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0px;
   margin: 0px;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus, input:focus {
+  outline: none;
 }
 
-.hidden{
+button {
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+  :hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
+}
+
+.hidden {
   display: none !important;
 }
 
 .error {
-    position: relative;
-    animation: shake .1s linear;
-    animation-iteration-count: 3;
+  position: relative;
+  animation: shake .1s linear;
+  animation-iteration-count: 3;
 }
 
 @keyframes shake {
-    0% { left: -5px; }
-    100% { right: -5px; }
+  0% {
+    left: -5px;
+  }
+
+  100% {
+    right: -5px;
+  }
 }
 
 /* setting for the map */
-
-#div_map{
+#div_map {
   display: block;
   position: absolute;
   height: 100%;
@@ -37,8 +62,7 @@ textarea:focus, input:focus{
 }
 
 /* setting for the elements on the map */
-
-#div_searchbar{
+#div_searchbar {
   display: block;
   position: absolute;
   height: 25px;
@@ -48,48 +72,47 @@ textarea:focus, input:focus{
   z-index: 1;
 }
 
-#input_searchbar{
+#input_searchbar {
   width: calc(100%);
   height: 100%;
 }
 
-.div_button_map{
+.div_button_map {
   display: block;
   position: absolute;
   width: 30px;
   height: 30px;
   background-color: white;
-  border: 2px solid rgba(0,0,0,0.3);
+  border: 2px solid rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   text-align: center;
   line-height: 30px;
   cursor: pointer;
 }
 
-.div_button_map:hover{
+.div_button_map:hover {
   background-color: #e9e9e9;
 }
 
-#div_hamburger{
+#div_hamburger {
   right: 10px;
   top: 10px;
 }
 
-#div_question{
+#div_question {
   left: 10px;
   top: 80px;
 }
 
 /* setting for the autocomplete_box */
-
-#autocomplete_box{
+#autocomplete_box {
   width: calc(100% - 2px);
   height: auto;
   border: 1px solid lightgray;
   background-color: white;
 }
 
-.autocomplete_element{
+.autocomplete_element {
   height: 25px;
   padding-left: 5px;
   font-size: 14px;
@@ -97,36 +120,38 @@ textarea:focus, input:focus{
   color: darkslategray;
   border-bottom: 1px solid lightgray;
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.autocomplete_element:hover{
+.autocomplete_element:hover {
   background-color: #e9e9e9;
 }
 
 /* setting for the marker popup */
-
-.div_pop_title{
+.div_pop_title {
   font-weight: bold;
   font-size: 16px;
 }
 
-.div_pop_desc{
+.div_pop_desc {
   display: inline-block;
   color: black !important;
   width: 60px;
 }
 
-.div_pop_val{
+.div_pop_val {
   display: inline-block;
 }
 
-.div_pop_space{
+.div_pop_space {
   display: block;
   height: 10px;
   width: 100%;
 }
 
-.div_pop_big{
+.div_pop_big {
   height: 30px;
   line-height: 30px;
   width: 100%;
@@ -134,17 +159,16 @@ textarea:focus, input:focus{
 }
 
 /* setting for the big menus */
-
-.div_menu{
+.div_menu {
   display: block;
   position: absolute;
   height: auto;
   width: calc(90% - 22px);
-  max-height: calc(90% - 90px);
+  max-height: calc(90% - 50px);
   min-height: 200px;
   max-width: 500px;
   min-width: 200px;
-  top: 50px;
+  top: 40px;
   /*left: ; calculated with js, as this must be dynamic*/
   background-color: white;
   border: 1px solid lightgray;
@@ -153,12 +177,12 @@ textarea:focus, input:focus{
   overflow-y: auto;
 }
 
-.div_menu_title{
+.div_menu_title {
   font-weight: bold;
   font-size: 22px;
 }
 
-.div_menu_suptitle{
+.div_menu_suptitle {
   margin-top: 9px;
   font-size: 18px;
   width: 100%;
@@ -166,44 +190,49 @@ textarea:focus, input:focus{
   margin-bottom: 5px;
 }
 
-.div_menu_text{
-  font-size: 15px;
+.div_menu_text {
+  font-size: 13px;
 }
 
-.div_menu_text_divider{
+.div_menu_text_divider {
   display: block;
   height: 10px;
 }
 
 /* setting for the filter menu */
-
-#div_filter_buttons{
+#div_filter_buttons {
   margin-top: 10px;
+  margin-right: 10px;
+  float: right;
 }
 
 /* setting for the help menu */
-
-.div_legend_entry{
+.div_legend_entry {
   display: inline-flex;
   width: 100%;
 }
 
-.div_legend_entry img{
+.div_legend_entry img {
   padding-left: 10px;
 }
 
-.div_legend_entry div{
+.div_legend_entry div {
   line-height: 33px;
   padding-left: 15px;
 }
 
-#div_help_confirmation{
+#div_help_confirmation {
   margin-top: 15px;
 }
 
-/* setting for the overlay */
+#div_help_buttons {
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
 
-#div_overlay{
+/* setting for the overlay */
+#div_overlay {
   display: block;
   position: absolute;
   height: 100%;
