@@ -1,0 +1,202 @@
+{
+  "Adegem": {
+    "association": "VZW Survivalrun Meetjesland",
+    "run_name": "",
+    "coordinates": [51.21007038187108, 3.5038892384735765]
+  },
+  "Bathmen": {
+    "association": "Schip Beek Survival Run",
+    "run_name": "",
+    "coordinates": [52.246660195214716, 6.279094963711562]
+  },
+  "Beltrum": {
+    "association": "Stichting Survivalrun Beltrum",
+    "run_name": "",
+    "coordinates": [52.066911163534286, 6.563123373859468]
+  },
+  "Boerakker": {
+    "association": "Survival Vereniging Boerakker",
+    "run_name": "",
+    "coordinates": [53.19520977958064, 6.325004068666775]
+  },
+  "Buren": {
+    "association": "Wilgje Buitensport",
+    "run_name": "",
+    "coordinates": [51.911215501339804, 5.314096273068424]
+  },
+  "De_Knipe": {
+    "association": "SV Paupenburg",
+    "run_name": "",
+    "coordinates": [52.96676459409191, 5.986797793285064]
+  },
+  "Deest": {
+    "association": "Survivalrun Vereniging STORM Outdoor",
+    "run_name": "",
+    "coordinates": [51.88844328143799, 5.661351686591727]
+  },
+  "Delft": {
+    "association": "Slopend",
+    "run_name": "Survivalstrijd",
+    "coordinates": [51.995233, 4.376270]
+  },
+  "Dinxperlo": {
+    "association": "Stichting Survival Dinxperlo",
+    "run_name": "",
+    "coordinates": [51.87707991073668, 6.500243615455302]
+  },
+  "Dronten": {
+    "association": "Survivalrunvereniging Dronten",
+    "run_name": "",
+    "coordinates": [52.52371429738408, 5.719329528857651]
+  },
+  "Ede": {
+    "association": "Tuxis Ede's Best Run",
+    "run_name": "",
+    "coordinates": [52.035004, 5.638734]
+  },
+  "Eindhoven": {
+    "association": "Survivalrun Eindhoven",
+    "run_name": "",
+    "coordinates": [51.45220300280093, 5.48952735977286]
+  },
+  "Elst": {
+    "association": "Survival Lingezegen",
+    "run_name": "",
+    "coordinates": [51.94315537078318, 5.863293683100856]
+  },
+  "Enschede_1": {
+    "association": "Rutbeek Survivalvereniging",
+    "run_name": "",
+    "coordinates": [52.17964278630361, 6.830735323750876]
+  },
+  "Enschede_2": {
+    "association": "D.S.S.V. Tartaros",
+    "run_name": "",
+    "coordinates": [52.240969944341316, 6.852456264349519]
+  },
+  "Gendringen": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Groningen": {
+    "association": "Survivalrun Groningen",
+    "run_name": "",
+    "coordinates": [53.23691118694274, 6.531438108321115]
+  },
+  "Grootebroek": {
+    "association": "SSV STREKER SURVIVALRUN VERENIGING",
+    "run_name": "",
+    "coordinates": [52.69375760447761, 5.216058869129106]
+  },
+  "Harreveld": {
+    "association": "Stichting Survival Harreveld",
+    "run_name": "",
+    "coordinates": [51.98022460263487, 6.5162738388181225]
+  },
+  "Havelte": {
+    "association": "Survivalrun Havelte",
+    "run_name": "",
+    "coordinates": [52.77173153923626, 6.236187271640047]
+  },
+  "Kollumerzwaag": {
+    "association": "WROTRUN KOLLUMERZWAAG",
+    "run_name": "Wrotrun",
+    "coordinates": [53.263115, 6.084619]
+  },
+  "Kootstertille": {
+    "association": "Survival Kootstertille",
+    "run_name": "Stertil Survivalrun",
+    "coordinates": [53.21153645570199, 6.094036142369739]
+  },
+  "Leeuwarden": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Loil": {
+    "association": "Stichting Sportieve Activiteiten Loil",
+    "run_name": "Survivalrun Loil",
+    "coordinates": [51.9526008788075, 6.144468680015941]
+  },
+  "Neede": {
+    "association": "Stichting Survival Neede",
+    "run_name": "Survivalrun Neede",
+    "coordinates": [52.14515306309929, 6.59122535946076]
+  },
+  "Nieuwehorne": {
+    "association": "UDIROS Outdoor",
+    "run_name": "U3 Run",
+    "coordinates": [52.95449979487374, 6.06092272885727]
+  },
+  "Nijmegen": {
+    "association": "NSSV FEL",
+    "run_name": "SURVIFELRUN",
+    "coordinates": [51.81891203215059, 5.867562292579628]
+  },
+  "Norg": {
+    "association": "",
+    "run_name": "",
+    "coordinates": [53.06764052337201, 6.46345711341784]
+  },
+  "Oldenzaal": {
+    "association": "",
+    "run_name": "",
+    "coordinates": [52.302831700775954, 6.890245815762174]
+  },
+  "Rotterdam": {
+    "association": "Outdoor valley",
+    "run_name": "Outdoor Valley Survivalrun",
+    "coordinates": [51.97722198346488, 4.535693899781509]
+  },
+  "s_Hertogenbosch": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Steenbergen": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Udenhout": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Utrecht": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Vollenhove": {
+    "association": "Survival Vollenhove Training Group",
+    "run_name": "Veno in the Wetlands",
+    "coordinates": [52.67847452493705, 5.957506830312433]
+  },
+  "Wesepe": {
+    "association": "Survival Wesepe",
+    "run_name": "Survivalrun Wesepe",
+    "coordinates": [52.330005000992806, 6.215625497053085]
+  },
+  "Westerbork": {
+    "association": "Survivalrun Westerbork",
+    "run_name": "Turfsteker Survivalrun Westerbork",
+    "coordinates": [52.85043213693107, 6.60648984744952]
+  },
+  "Zeist": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Zelhem": {
+    "association": "",
+    "run_name": "",
+    "coordinates": []
+  },
+  "Zwolle": {
+    "association": "",
+    "run_name": "",
+    "coordinates": [52.49995573539163, 6.120588932912098]
+  }
+}

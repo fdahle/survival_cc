@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Slopend CC</title>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" rel="stylesheet" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet" >
+
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+  <script src="js/main.js"></script>
+
+
+</head>
+
+<body>
+
+  <div id="div_map">
+  </div>
+
+  <div id="div_searchbar">
+    <input type="text" id="input_searchbar" placeholder="Search for run, place, association" onkeydown="reset_searchbar()" onkeyup="handle_searchbar(event)">
+    <div id="autocomplete_box"></div>
+  </div>
+
+  <div id="div_hamburger" onclick="open_menu()">
+    <a>
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <div id="div_filters" class="hidden">
+    <div class="div_filter_title">Filters</div>
+    <div>
+      <div id="div_filter_category">
+        <div class="div_filter_suptitle">Category</div>
+        <input type="checkbox" id="cat_lsr" name="LSR" checked>
+        <label for="LSR">LSR</label><br>
+        <input type="checkbox" id="cat_msr" name="MSR" checked>
+        <label for="MSR">MSR</label><br>
+        <input type="checkbox" id="cat_ksr" name="KSR" checked>
+        <label for="KSR">KSR</label><br>
+        <input type="checkbox" id="cat_bsr" name="BSR" checked>
+        <label for="BSR">BSR</label><br>
+        <input type="checkbox" id="cat_rec" name="Recr" checked>
+        <label for="Recr">Recreational</label>
+      </div>
+      <div id="div_filter_length">
+        <div class="div_filter_suptitle">Length</div>
+        <input type="checkbox" id="cat_lsr" name="short" checked>
+        <label for="short">short (under 7.5km)</label><br>
+        <input type="checkbox" id="cat_lsr" name="medium" checked>
+        <label for="medium">medium (between 7.5km and 15km)</label><br>
+        <input type="checkbox" id="cat_lsr" name="long" checked>
+        <label for="long">long (over 15km)</label><br>
+      </div>
+
+      <div id="div_filter_subscription">
+        <div class="div_filter_suptitle">Subscription</div>
+        <input type="checkbox" id="subs_open" name="open" checked>
+        <label for="open">open</label><br>
+        <input type="checkbox" id="subs_open_soon" name="open_soon" checked>
+        <label for="open_soon">open soon</label><br>
+        <input type="checkbox" id="subs_closed" name="closed" checked>
+        <label for="closed">closed</label><br>
+      </div>
+
+      <div id="div_filter_weekday"></div>
+        <div class="div_filter_suptitle">Weekday</div>
+        <input type="checkbox" id="day_sat" name="saturday" checked>
+        <label for="saturday">Saturday</label><br>
+        <input type="checkbox" id="cat_sun" name="sunday" checked>
+        <label for="sunday">Sunday</label><br>
+      </div>
+
+      <div id="div_filter_buttons">
+        <button>Filter</button>
+      </div>
+    </div>
+
+  <div id="div_overlay" class="hidden" onclick=close_menu()>
+  </div>
+
+</body>
+
+<script>
+  init_page();
+</script>
+
+
+</html>
