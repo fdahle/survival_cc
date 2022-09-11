@@ -36,7 +36,6 @@ async function init_page() {
 
   //check if we should hide the help site
   var show_help = get_cookie('show_help');
-  console.log(show_help);
   if (show_help == 'true'){
     document.getElementById("div_help").classList.remove("hidden");
     document.getElementById("div_overlay").classList.remove("hidden");
@@ -228,6 +227,58 @@ function set_markers_and_popups() {
     pop_a_hyperlink_val.classList.add("div_pop_val");
     pop_div_hyperlink.appendChild(pop_a_hyperlink_val);
     pop.appendChild(pop_div_hyperlink);
+
+    //add info distances
+    var pop_div_distances = document.createElement("div");
+    var pop_div_distances_desc = document.createElement("div");
+    pop_div_distances_desc.innerHTML = "Distances: ";
+    pop_div_distances_desc.classList.add("div_pop_desc");
+    pop_div_distances.appendChild(pop_div_distances_desc);
+
+    //get the distances and add km
+    var distance_str = ""
+    for (var afst of run["afstanden"]){
+      distance_str = distance_str + afst + "km, "
+    }
+    distance_str = distance_str.substring(0, distance_str.length - 2);
+
+
+    var pop_div_distances_val = document.createElement("div");
+    pop_div_distances_val.innerHTML = distance_str;
+    pop_div_distances_val.classList.add("div_pop_val");
+    pop_div_distances.appendChild(pop_div_distances_val);
+    pop.appendChild(pop_div_distances);
+
+    //add info categories
+    var pop_div_categories = document.createElement("div");
+    var pop_div_categories_desc = document.createElement("div");
+    pop_div_categories_desc.innerHTML = "Categories: ";
+    pop_div_categories_desc.classList.add("div_pop_desc");
+    pop_div_categories.appendChild(pop_div_categories_desc);
+
+    //get the categories and colour them
+    var klassement_str = ""
+    for (var kla of run["klassement"]){
+      if (kla == "L"){
+        var col = "black"
+      } else if (kla == "M"){
+        var col = "red"
+      } else if (kla == "K"){
+        var col = "##3333ff"
+      } else if (kla == "B"){
+        var col = "green"
+      } else if (kla == "J"){
+        var col = "orange"
+      }
+      klassement_str = klassement_str + "<b><span style='color:" + col + "'>" + kla + "</span></b> "
+    }
+
+    var pop_div_categories_val = document.createElement("div");
+    pop_div_categories_val.innerHTML = klassement_str;
+    pop_div_categories_val.classList.add("div_pop_val");
+    pop_div_categories.appendChild(pop_div_categories_val);
+    pop.appendChild(pop_div_categories);
+
 
     //just add some space between the divs
     var pop_div_space = document.createElement("div")
