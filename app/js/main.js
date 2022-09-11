@@ -160,8 +160,6 @@ function set_markers_and_popups() {
   for (var key in json_runs) {
     let run = json_runs[key];
 
-    console.log(run);
-
     if (Object.keys(run)[0] == "za") {
       run = run["za"]
     }
@@ -448,8 +446,6 @@ function handle_searchbar(e) {
         select_searchbar_entry(e)
       });
 
-      // TODO: filtering with space (example ' dinx') not working
-
       //make the search vale bold
       var pos_of_substring = searchVal.toLowerCase().indexOf(val.toLowerCase());
       let notboldText0 = searchVal.substring(0, pos_of_substring)
@@ -476,7 +472,11 @@ function select_searchbar_entry(e){
   document.getElementById("input_searchbar").value = text;
 
   //zoom to the clicked element
-  let coords = dataArr["runs"][div.key]["coordinates"];
+  if (Object.keys(dataArr["runs"][div.key])[0] == "za") {
+    var coords = dataArr["runs"][div.key]["za"]["coordinates"];
+  } else {
+    var coords = dataArr["runs"][div.key]["coordinates"];
+  }
   if (coords != undefined){
     map.setView(coords, 12);
   } else {
