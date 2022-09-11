@@ -1,37 +1,37 @@
 {
   "Adegem": {
     "association": "VZW Survivalrun Meetjesland",
-    "run_name": "",
+    "run_name": "Survivalrun Adegem",
     "coordinates": [51.21007038187108, 3.5038892384735765]
   },
   "Bathmen": {
     "association": "Schip Beek Survival Run",
-    "run_name": "",
+    "run_name": "Survival Vereniging Bathmen",
     "coordinates": [52.246660195214716, 6.279094963711562]
   },
   "Beltrum": {
     "association": "Stichting Survivalrun Beltrum",
-    "run_name": "",
+    "run_name": "Survivalrun Beltrum",
     "coordinates": [52.066911163534286, 6.563123373859468]
   },
   "Boerakker": {
     "association": "Survival Vereniging Boerakker",
-    "run_name": "",
+    "run_name": "Survivalrun Boerakker",
     "coordinates": [53.19520977958064, 6.325004068666775]
   },
   "Buren": {
     "association": "Wilgje Buitensport",
-    "run_name": "",
+    "run_name": "Survivalrun Buren",
     "coordinates": [51.911215501339804, 5.314096273068424]
   },
   "De_Knipe": {
     "association": "SV Paupenburg",
-    "run_name": "",
+    "run_name": "Survivalrun De Knipe",
     "coordinates": [52.96676459409191, 5.986797793285064]
   },
   "Deest": {
     "association": "Survivalrun Vereniging STORM Outdoor",
-    "run_name": "",
+    "run_name": "StormRun",
     "coordinates": [51.88844328143799, 5.661351686591727]
   },
   "Delft": {
@@ -41,22 +41,22 @@
   },
   "Dinxperlo": {
     "association": "Stichting Survival Dinxperlo",
-    "run_name": "",
+    "run_name": "Dinxperloop",
     "coordinates": [51.87707991073668, 6.500243615455302]
   },
   "Dronten": {
     "association": "Survivalrunvereniging Dronten",
-    "run_name": "",
+    "run_name": "Dronterland Survivalrun",
     "coordinates": [52.52371429738408, 5.719329528857651]
   },
   "Ede": {
-    "association": "Tuxis Ede's Best Run",
-    "run_name": "",
+    "association": "Sport Survival Team Ede",
+    "run_name": "Tuxis Ede's Best Run",
     "coordinates": [52.035004, 5.638734]
   },
   "Eindhoven": {
     "association": "Survivalrun Eindhoven",
-    "run_name": "",
+    "run_name": "All Terrain Outdoor Challenge",
     "coordinates": [51.45220300280093, 5.48952735977286]
   },
   "Elst": {
@@ -75,13 +75,13 @@
     "coordinates": [52.240969944341316, 6.852456264349519]
   },
   "Gendringen": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "Stichting Survival Gendringen",
+    "run_name": "Survivalrun Gendringen",
+    "coordinates": [51.8781533529157, 6.377905137905582]
   },
   "Groningen": {
     "association": "Survivalrun Groningen",
-    "run_name": "",
+    "run_name": "Survivalrun Groningen",
     "coordinates": [53.23691118694274, 6.531438108321115]
   },
   "Grootebroek": {
@@ -150,24 +150,24 @@
     "coordinates": [51.97722198346488, 4.535693899781509]
   },
   "s_Hertogenbosch": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "U-Base 'S'-Hertogenbosch",
+    "run_name": "U-Battle Run",
+    "coordinates": [51.71786491831099, 5.264196250952326]
   },
   "Steenbergen": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "DIOMEDON",
+    "run_name": "Survivalrun Steenbergen",
+    "coordinates": [51.580564172954055, 4.322378615445681]
   },
   "Udenhout": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "Survivalteam Udenhout",
+    "run_name": "Survivalrun Udenhout",
+    "coordinates": [51.61366833267403, 5.13230657921692]
   },
   "Utrecht": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "U.S.S.V. Simius Hircus",
+    "run_name": "Utrecht Survivalrun",
+    "coordinates": [52.09090060976431, 5.175972750174061]
   },
   "Vollenhove": {
     "association": "Survival Vollenhove Training Group",
@@ -185,18 +185,18 @@
     "coordinates": [52.85043213693107, 6.60648984744952]
   },
   "Zeist": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "Survivalgroep FIT Zeist",
+    "run_name": "Survivalrun Zeist",
+    "coordinates": [52.1051273776838, 5.240026497341608]
   },
   "Zelhem": {
-    "association": "",
-    "run_name": "",
-    "coordinates": []
+    "association": "Survivalgroep Jan in 't Touw",
+    "run_name": "Survivalrun Zelhem",
+    "coordinates": [51.9847757777308, 6.352419160400848]
   },
   "Zwolle": {
-    "association": "",
-    "run_name": "",
+    "association": "Thor Zwolle",
+    "run_name": "THOR Survivalrun",
     "coordinates": [52.49995573539163, 6.120588932912098]
   }
 }

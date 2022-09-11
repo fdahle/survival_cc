@@ -27,14 +27,20 @@
   </div>
 
   <div id="div_searchbar">
-    <input type="text" id="input_searchbar" placeholder="Search for run, place, association" onkeydown="reset_searchbar()" onkeyup="handle_searchbar(event)">
-    <div id="autocomplete_box"></div>
+    <input type="search" id="input_searchbar" placeholder="Search for run, place, association" onkeydown="reset_searchbar()" onsearch="handle_searchbar(event)" onkeyup="handle_searchbar(event)">
+    <div id="autocomplete_box" class="hidden"></div>
   </div>
 
   <div id="div_hamburger" onclick="open_menu()">
     <a>
       <i class="fa fa-bars"></i>
     </a>
+  </div>
+
+  <div id="div_question" onclick="open_help()">
+    <a>
+      <i class = "fa fa-question"></i>
+    </div>
   </div>
 
   <div id="div_filters" class="hidden">
@@ -85,6 +91,8 @@
         <button>Filter</button>
       </div>
     </div>
+
+  <div id="div_help"></div>
 
   <div id="div_overlay" class="hidden" onclick=close_menu()>
   </div>

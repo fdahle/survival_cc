@@ -166,8 +166,6 @@ function set_markers_and_popups() {
       var run_name = run["run_name"]
     }
 
-    console.log(run);
-
     //add title
     var pop_div_title = document.createElement("div");
     pop_div_title.innerHTML = run_name;
@@ -229,7 +227,7 @@ function set_markers_and_popups() {
     } else if (run["inschrijfstate"].length == 1){
       pop_div_subscribe.innerHTML = "Subscription not possible!"
       pop_div_subscribe.style.color = "red"
-    } else if (run["inschrijfstate"] == ">schrijf hier in<"){
+    } else if (run["inschrijfstate"] == ">schrijf hier in<" || run["inschrijfstate"].startsWith("tot ")){
       var pop_a_subscribe = document.createElement("a");
       pop_a_subscribe.innerHTML = "Subscribe";
       pop_a_subscribe.href=run["Inschrijflink"];
@@ -259,7 +257,7 @@ function set_markers_and_popups() {
 
     //get the right marker colour
     var icon_col = "orange"
-    if (run["inschrijfstate"] == '>schrijf hier in<') {
+    if (run["inschrijfstate"] == ">schrijf hier in<" || run["inschrijfstate"].startsWith("tot ")){
       var icon_col = "green"
     } else if (run["inschrijfstate"] == "gesloten") {
       var icon_col = "red"
@@ -302,7 +300,7 @@ function handle_searchbar(e) {
 
 
   //jump to the run
-  if ((e.key) == "Enter") {
+  if ((e.key) == "Enter" && e instanceof KeyboardEvent) {
 
     //check what is matching
     var matching_keys = []
@@ -374,6 +372,7 @@ function handle_searchbar(e) {
 
     //We need at least two characters to give useful hints
     if (val.length < 2){
+      document.getElementById("autocomplete_box").classList.add("hidden");
       return
     }
 
@@ -387,14 +386,21 @@ function handle_searchbar(e) {
       var run_name = dataArr["runs"][key]["run_name"]
 
       //we have a match! -> add to the matching keys
-      if (city != undefined && city.toLowerCase().includes(val.toLowerCase())) {
+      if (run_name != undefined && run_name.toLowerCase().includes(val.toLowerCase())) {
+        autocomplete_list[run_name] = key;
+      } else if (city != undefined && city.toLowerCase().includes(val.toLowerCase())) {
         autocomplete_list[city] = key;
       } else if (association != undefined && association.toLowerCase().includes(val.toLowerCase())) {
         autocomplete_list[association] = key;
-      } else if (run_name != undefined && run_name.toLowerCase().includes(val.toLowerCase())) {
-        autocomplete_list[run_name] = key;
       }
     }
+
+    if (Object.keys(autocomplete_list).length > 0){
+      document.getElementById("autocomplete_box").classList.remove("hidden");
+    } else {
+      document.getElementById("autocomplete_box").classList.add("hidden");
+    }
+
 
     let index = 0;
     for (var searchVal in autocomplete_list){
