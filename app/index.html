@@ -10,18 +10,21 @@
   <title>Survivalmap</title>
 
 
-  <link href='http://fonts.googleapis.com/css?family=Roboto'
+  <link href='https://fonts.googleapis.com/css?family=Roboto'
     rel='stylesheet'
-    type='text/css'>
+    type='text/css' />
   <link href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     rel="stylesheet"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin="" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
+    rel="stylesheet" />
+
 
   <link href="css/style.css"
-    rel="stylesheet">
+    rel="stylesheet" />
 
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
@@ -37,7 +40,8 @@
   <div id="div_map">
   </div>
 
-  <div id="div_searchbar">
+  <div id="div_searchbar"
+    class="hidden">
     <input type="search"
       id="input_searchbar"
       placeholder="Search for run, place, association"
@@ -49,7 +53,7 @@
   </div>
 
   <div id="div_hamburger"
-    class="div_button_map"
+    class="div_button_map hidden"
     onclick="open_menu('filter')">
     <a>
       <i class="fa fa-bars"></i>
@@ -57,7 +61,7 @@
   </div>
 
   <div id="div_question"
-    class="div_button_map"
+    class="div_button_map hidden"
     onclick="open_menu('help')">
     <a>
       <i class="fa fa-question"></i>
@@ -73,45 +77,50 @@
         <input type="checkbox"
           id="cat_lsr"
           name="LSR"
-          checked>
+          onchange = change_filter('cat_lsr')>
         <label for="LSR">LSR</label><br>
         <input type="checkbox"
           id="cat_msr"
           name="MSR"
-          checked>
+          onchange = change_filter('cat_msr')>
         <label for="MSR">MSR</label><br>
         <input type="checkbox"
           id="cat_ksr"
           name="KSR"
-          checked>
+          onchange = change_filter('cat_ksr')>
         <label for="KSR">KSR</label><br>
         <input type="checkbox"
           id="cat_bsr"
           name="BSR"
-          checked>
+          onchange = change_filter('cat_bsr')>
         <label for="BSR">BSR</label><br>
+        <input type="checkbox"
+          id="cat_jsr"
+          name="JSR"
+          onchange = change_filter('cat_jsr')>
+        <label for="JSR">JSR</label><br>
         <input type="checkbox"
           id="cat_rec"
           name="Recr"
-          checked>
+          onchange = change_filter('cat_rec')>
         <label for="Recr">Recreational</label>
       </div>
       <div id="div_filter_length">
         <div class="div_menu_suptitle">Length</div>
         <input type="checkbox"
-          id="cat_lsr"
+          id="length_short"
           name="short"
-          checked>
+          onchange = change_filter('length_short')>
         <label for="short">short (under 7.5km)</label><br>
         <input type="checkbox"
-          id="cat_lsr"
+          id="length_medium"
           name="medium"
-          checked>
+          onchange = change_filter('length_medium')>
         <label for="medium">medium (between 7.5km and 15km)</label><br>
         <input type="checkbox"
-          id="cat_lsr"
+          id="length_long"
           name="long"
-          checked>
+          onchange = change_filter('length_long')>
         <label for="long">long (over 15km)</label><br>
       </div>
 
@@ -120,17 +129,17 @@
         <input type="checkbox"
           id="subs_open"
           name="open"
-          checked>
+          onchange = change_filter('subs_open')>
         <label for="open">open</label><br>
         <input type="checkbox"
-          id="subs_open_soon"
-          name="open_soon"
-          checked>
-        <label for="open_soon">open soon</label><br>
+          id="subs_notyetopen"
+          name="notyetopen"
+          onchange = change_filter('subs_notyetopen')>
+        <label for="notyetopen">not yet open</label><br>
         <input type="checkbox"
           id="subs_closed"
           name="closed"
-          checked>
+          onchange = change_filter('subs_closed')>
         <label for="closed">closed</label><br>
       </div>
 
@@ -139,17 +148,17 @@
       <input type="checkbox"
         id="day_sat"
         name="saturday"
-        checked>
+        onchange = change_filter('day_sat')>
       <label for="saturday">Saturday</label><br>
       <input type="checkbox"
-        id="cat_sun"
+        id="day_sun"
         name="sunday"
-        checked>
+        onchange = change_filter('day_sun')>
       <label for="sunday">Sunday</label><br>
     </div>
 
     <div id="div_filter_buttons">
-      <button>Filter</button>
+      <button onclick="filter_runs()">Filter</button>
     </div>
   </div>
 
@@ -157,7 +166,8 @@
     class="div_menu hidden">
     <div class="div_menu_title">Survivalmap</div>
     <div class="div_menu_suptitle">Disclaimer</div>
-    <div class="div_menu_text">Welcome to the map for all survivalruns in (NL) and (B).
+    <div class="div_menu_text">Welcome to the map for all survivalruns in
+      <span class="fi fi-nl"></span> and </span> <span class="fi fi-be fis"></span>.
       Here you can directly see where a run is located, get more information and a link to the registration.<br>
       <div class="div_menu_text_divider"></div>
       Please note that this website is currently under development and still work in progress.<br>
@@ -170,23 +180,33 @@
     </div>
     <div class="div_menu_suptitle">Legend</div>
     <div class="div_legend_entry">
-      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" width="20" height="33">
+      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
+        width="20"
+        height="33">
       <div>Subscription open</div>
     </div>
     <div class="div_legend_entry">
-      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" width="20" height="33">
-      <div>Subscription open soon</div>
+      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png"
+        width="20"
+        height="33">
+      <div>Subscription not yet open</div>
     </div>
     <div class="div_legend_entry">
-      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png" width="20" height="33">
+      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png"
+        width="20"
+        height="33">
       <div>Subscription not open yet</div>
     </div>
     <div class="div_legend_entry">
-      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" width="20" height="33">
+      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png"
+        width="20"
+        height="33">
       <div>Subscription closed</div>
     </div>
     <div class="div_legend_entry">
-      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png" width="20" height="33">
+      <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png"
+        width="20"
+        height="33">
       <div>Run cancelled</div>
     </div>
     <div id="div_help_confirmation">
@@ -195,13 +215,11 @@
         name="show_help_again"
         onchange="change_cookie('auto_show_help')">
       <label for="show_help_again">I don't want to see this again at startup</label><br>
-    <div id="div_help_buttons">
+      <div id="div_help_buttons">
         <button onclick="close_menu()">Close</button>
       </div>
 
     </div>
-
-
   </div>
 
   <div id="div_overlay"
@@ -209,8 +227,10 @@
     onclick=close_menu()>
   </div>
 
-  <div id="div_nojs"
-    class"no-js">
+  <div id="div_warning_message">
+    <div id="div_warning_title">Warning</div>
+    <div id="div_warning_content">This website uses javascript.<br>
+      Please enable javascript for proper functioning.</div>
   </div>
 
 </body>

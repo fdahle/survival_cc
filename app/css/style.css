@@ -67,8 +67,9 @@ button {
   position: absolute;
   height: 25px;
   width: 70%;
+  max-width: 300px;
   top: 10px;
-  left: 15%;
+  /*left: ; calculated with js, as this must be dynamic*/
   z-index: 1;
 }
 
@@ -175,6 +176,7 @@ button {
   z-index: 100;
   padding: 10px;
   overflow-y: auto;
+  font-size: 13px;
 }
 
 .div_menu_title {
@@ -210,6 +212,7 @@ button {
 .div_legend_entry {
   display: inline-flex;
   width: 100%;
+  font-size: 13px;
 }
 
 .div_legend_entry img {
@@ -242,4 +245,29 @@ button {
   background-color: gray;
   opacity: 0.4;
   z-index: 50
+}
+
+/* setting for the warning message */
+
+#div_warning_message{
+  position: absolute;
+    display: block;
+    top: 50px;
+    left: calc(50% - 105px);
+    width: 200px;
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
+#div_warning_title{
+  font-weight: bold;
+  color: red;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+}
+
+#div_warning_content{
+  font-size: 13px;
 }
