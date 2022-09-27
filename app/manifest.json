@@ -1,0 +1,26 @@
+{
+  "short_name": "Survivalmap",
+  "name": "Survivalmap for Survivalruns",
+  "icons": [{
+      "src": "/images/favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    }, {
+      "src": "/images/favicon-64x64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    }, {
+      "src": "/images/favicon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/images/favicon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

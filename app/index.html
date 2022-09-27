@@ -8,6 +8,8 @@
     content="width=device-width, initial-scale=1">
 
   <title>Survivalmap</title>
+  <link rel="manifest" href="/manifest.json">
+
 
 
   <link href='https://fonts.googleapis.com/css?family=Roboto'
@@ -25,6 +27,8 @@
 
   <link href="css/style.css"
     rel="stylesheet" />
+  <link href="css/loader.css"
+    rel="stylesheet" />
 
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
@@ -36,6 +40,18 @@
 </head>
 
 <body>
+
+  <div id="div_loader"
+    class="lds-roller hidden">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
   <div id="div_map">
   </div>
@@ -52,9 +68,28 @@
       class="hidden"></div>
   </div>
 
+  <div id="div_season_picker"
+    class="hidden">
+    <div id="div_button_previous_season"
+      onclick="change_season('previous')">
+      <a>
+        <i class="fa fa-chevron-circle-left"
+          aria-hidden="true"></i>
+      </a>
+    </div>
+    <div id="div_selected_season"></div>
+    <div id="div_button_next_season"
+      onclick="change_season('next')">
+      <a>
+        <i class="fa fa-chevron-circle-right"
+          aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
   <div id="div_hamburger"
     class="div_button_map hidden"
-    onclick="open_menu('filter')">
+    onclick="open_menu('main_menu')">
     <a>
       <i class="fa fa-bars"></i>
     </a>
@@ -62,107 +97,221 @@
 
   <div id="div_question"
     class="div_button_map hidden"
-    onclick="open_menu('help')">
+    onclick="open_menu('legend')">
     <a>
       <i class="fa fa-question"></i>
     </a>
   </div>
 
-  <div id="div_filters"
+  <div id="div_main_menu"
     class="div_menu hidden">
-    <div class="div_menu_title">Filters</div>
-    <div>
-      <div id="div_filter_category">
-        <div class="div_menu_suptitle">Category</div>
-        <input type="checkbox"
-          id="cat_lsr"
-          name="LSR"
-          onchange = change_filter('cat_lsr')>
-        <label for="LSR">LSR</label><br>
-        <input type="checkbox"
-          id="cat_msr"
-          name="MSR"
-          onchange = change_filter('cat_msr')>
-        <label for="MSR">MSR</label><br>
-        <input type="checkbox"
-          id="cat_ksr"
-          name="KSR"
-          onchange = change_filter('cat_ksr')>
-        <label for="KSR">KSR</label><br>
-        <input type="checkbox"
-          id="cat_bsr"
-          name="BSR"
-          onchange = change_filter('cat_bsr')>
-        <label for="BSR">BSR</label><br>
-        <input type="checkbox"
-          id="cat_jsr"
-          name="JSR"
-          onchange = change_filter('cat_jsr')>
-        <label for="JSR">JSR</label><br>
-        <input type="checkbox"
-          id="cat_rec"
-          name="Recr"
-          onchange = change_filter('cat_rec')>
-        <label for="Recr">Recreational</label>
-      </div>
-      <div id="div_filter_length">
-        <div class="div_menu_suptitle">Length</div>
-        <input type="checkbox"
-          id="length_short"
-          name="short"
-          onchange = change_filter('length_short')>
-        <label for="short">short (under 7.5km)</label><br>
-        <input type="checkbox"
-          id="length_medium"
-          name="medium"
-          onchange = change_filter('length_medium')>
-        <label for="medium">medium (between 7.5km and 15km)</label><br>
-        <input type="checkbox"
-          id="length_long"
-          name="long"
-          onchange = change_filter('length_long')>
-        <label for="long">long (over 15km)</label><br>
-      </div>
-
-      <div id="div_filter_subscription">
-        <div class="div_menu_suptitle">Subscription</div>
-        <input type="checkbox"
-          id="subs_open"
-          name="open"
-          onchange = change_filter('subs_open')>
-        <label for="open">open</label><br>
-        <input type="checkbox"
-          id="subs_notyetopen"
-          name="notyetopen"
-          onchange = change_filter('subs_notyetopen')>
-        <label for="notyetopen">not yet open</label><br>
-        <input type="checkbox"
-          id="subs_closed"
-          name="closed"
-          onchange = change_filter('subs_closed')>
-        <label for="closed">closed</label><br>
-      </div>
-
-      <div id="div_filter_weekday"></div>
-      <div class="div_menu_suptitle">Weekday</div>
-      <input type="checkbox"
-        id="day_sat"
-        name="saturday"
-        onchange = change_filter('day_sat')>
-      <label for="saturday">Saturday</label><br>
-      <input type="checkbox"
-        id="day_sun"
-        name="sunday"
-        onchange = change_filter('day_sun')>
-      <label for="sunday">Sunday</label><br>
+    <div class="tab">
+      <button class="tablinks"
+        onclick="open_tab('personal')">Personal</button>
+      <button class="tablinks"
+        onclick="open_tab('association')">Association</button>
+      <button class="tablinks"
+        onclick="open_tab('filters')">Filters</button>
+      <button class="tablinks"
+        onclick="open_tab('settings')">Settings</button>
     </div>
+    <div id="div_tab_personal"
+      class="tabcontent">
+      <div class="div_menu_suptitle">Your name</div>
+      <div>Will be implemented soon!</div>
+      <div class="div_menu_suptitle">Registered runs</div>
+      <div>Will be implemented soon!</div>
+      <div class="div_menu_suptitle">Results</div>
+      <div>Will be implemented soon!</div>
+    </div>
+    <div id="div_tab_association"
+      class="tabcontent hidden">
+      <div class="div_menu_suptitle">Your Association</div>
+      <div>Will be implemented soon!</div>
+    </div>
+    <div id="div_tab_filters"
+      class="tabcontent hidden">
+      <div>
+        <div id="div_filter_category">
+          <div class="div_menu_suptitle">Category</div>
+          <input type="checkbox"
+            id="cat_lsr"
+            name="LSR"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_lsr')>
+          <label for="LSR">LSR</label><br>
+          <input type="checkbox"
+            id="cat_msr"
+            name="MSR"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_msr')>
+          <label for="MSR">MSR</label><br>
+          <input type="checkbox"
+            id="cat_ksr"
+            name="KSR"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_ksr')>
+          <label for="KSR">KSR</label><br>
+          <input type="checkbox"
+            id="cat_bsr"
+            name="BSR"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_bsr')>
+          <label for="BSR">BSR</label><br>
+          <input type="checkbox"
+            id="cat_jsr"
+            name="JSR"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_jsr')>
+          <label for="JSR">JSR</label><br>
+          <input type="checkbox"
+            id="cat_rec"
+            name="Recr"
+            class="check_filter filter_cat"
+            onchange=check_filter_validity('cat_rec')>
+          <label for="Recr">Recreational</label>
+        </div>
+        <div id="div_filter_length">
+          <div class="div_menu_suptitle">Length</div>
+          <input type="checkbox"
+            id="length_short"
+            name="short"
+            class="check_filter filter_length"
+            onchange=check_filter_validity('length_short')>
+          <label for="short">short (under 7.5km)</label><br>
+          <input type="checkbox"
+            id="length_medium"
+            name="medium"
+            class="check_filter filter_length"
+            onchange=check_filter_validity('length_medium')>
+          <label for="medium">medium (between 7.5km and 15km)</label><br>
+          <input type="checkbox"
+            id="length_long"
+            name="long"
+            class="check_filter filter_length"
+            onchange=check_filter_validity('length_long')>
+          <label for="long">long (over 15km)</label><br>
+          <input type="checkbox"
+            id="length_estaffete"
+            name="estaffete"
+            class="check_filter filter_length"
+            onchange=check_filter_validity('length_estaffete')>
+          <label for="estaffete">Estaffete</label><br>
+        </div>
+        <div id="div_filter_subscription">
+          <div class="div_menu_suptitle">Subscription</div>
+          <input type="checkbox"
+            id="subs_open"
+            name="open"
+            class="check_filter filter_subs"
+            onchange=check_filter_validity('subs_open')>
+          <label for="open">open</label><br>
+          <input type="checkbox"
+            id="subs_notyetopen"
+            name="notyetopen"
+            class="check_filter filter_subs"
+            onchange=check_filter_validity('subs_notyetopen')>
+          <label for="notyetopen">not yet open</label><br>
+          <input type="checkbox"
+            id="subs_closed"
+            name="closed"
+            class="check_filter filter_subs"
+            onchange=check_filter_validity('subs_closed')>
+          <label for="closed">closed</label><br>
+          <input type="checkbox"
+            id="subs_cancelled"
+            name="cancelled"
+            class="check_filter filter_subs"
+            onchange=check_filter_validity('subs_cancelled')>
+          <label for="cancelled">cancelled</label><br>
+        </div>
+        <div id="div_filter_weekday"></div>
+        <div class="div_menu_suptitle">Day</div>
+        <input type="checkbox"
+          id="day_weekdays"
+          name="weekdays"
+          class="check_filter filter_day"
+          onchange=check_filter_validity('day_weekdays')>
+        <label for="weekdays">Weekdays</label><br>
+        <input type="checkbox"
+          id="day_sat"
+          name="saturday"
+          class="check_filter filter_day"
+          onchange=check_filter_validity('day_sat')>
+        <label for="saturday">Saturday</label><br>
+        <input type="checkbox"
+          id="day_sun"
+          name="sunday"
+          class="check_filter filter_day"
+          onchange=check_filter_validity('day_sun')>
+        <label for="sunday">Sunday</label><br>
+      </div>
+      <div id="div_filter_buttons">
+        <button class="button_regular"
+          onclick="reset_filters()">Reset</button>
+        <button class="button_regular"
+          onclick="set_filters()">Filter</button>
+      </div>
+    </div>
+    <div id="div_tab_settings"
+      class="tabcontent hidden">
+      <div class="div_menu_suptitle">General</div>
+      <div class="settings_row">
+        <div class="settings_label">Language</div>
+        <div class="settings_val">
+          <span class="settings_lang fi fi-gb fis"></span>
+          <span class="settings_lang fi fi-nl fis"></span>
+          <span class="settings_lang fi fi-de fis"></span>
+        </div>
+      </div>
+      <div class="div_menu_suptitle">Personal</div>
+      <div class="settings_row">
+        <div class="settings_label">First Name</div>
+        <input type="text"
+          placeholder="Your first name"></input>
+      </div>
+      <div class="settings_row">
+        <div class="settings_label">Last Name</div>
+        <input type="text"
+          placeholder="Your last name"></input>
+      </div>
+      <div class="div_menu_suptitle">Association</div>
+      <div class="settings_row">
+        <div class="settings_label">Name</div>
+        <input type="text"
+          placeholder="Your association name"
+          oninput="change_input_val('association', this)"></text>
+      </div>
+      <details>
+        <summary class="div_menu_suptitle">Advanced</summary>
+        <div class="settings_row">
+          <div class="settings_label">Season sync time:</div>
+          <input id="input_season_sync_slider"
+            oninput="change_input_val('season', this)"
+            type="range"
+            min="0"
+            max="4"></input>
+          <div id="div_season_sync_slider">None</div>
+        </div>
+        <div class="settings_row">
+          <div class="settings_label">Run sync time:</div>
+          <input id="input_run_sync_slider"
+            oninput="change_input_val('run', this)"
+            type="range"
+            min="0"
+            max="4"></input>
+          <div id="div_run_sync_slider">None</div>
+        </div>
 
-    <div id="div_filter_buttons">
-      <button onclick="filter_runs()">Filter</button>
+        <div class="settings_row settings_button_div">
+          <button id="button_reset_site" class="button_regular"
+            onclick="db_reset()">Reset Site</button>
+        </div>
+      </details>
     </div>
   </div>
 
-  <div id="div_help"
+  <div id="div_legend"
     class="div_menu hidden">
     <div class="div_menu_title">Survivalmap</div>
     <div class="div_menu_suptitle">Disclaimer</div>
@@ -177,6 +326,8 @@
       for the latest competition calendar.<br>
       <div class="div_menu_text_divider"></div>
       This website is in no affiliation to the SBN or UVPonline. There is no liability for wrong run data!
+      <div class="div_menu_text_divider"></div>
+      If you find any bugs or have ideas for features, please let me know on <a href="https://github.com/fdahle/survival_cc/issues">Github</a>.
     </div>
     <div class="div_menu_suptitle">Legend</div>
     <div class="div_legend_entry">
@@ -189,7 +340,7 @@
       <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png"
         width="20"
         height="33">
-      <div>Subscription not yet open</div>
+      <div>Subscription soon open</div>
     </div>
     <div class="div_legend_entry">
       <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png"
@@ -209,22 +360,35 @@
         height="33">
       <div>Run cancelled</div>
     </div>
-    <div id="div_help_confirmation">
+    <div id="div_legend_confirmation">
       <input type="checkbox"
-        id="check_no_show_help"
-        name="show_help_again"
-        onchange="change_cookie('auto_show_help')">
-      <label for="show_help_again">I don't want to see this again at startup</label><br>
-      <div id="div_help_buttons">
-        <button onclick="close_menu()">Close</button>
-      </div>
-
+        id="check_no_show_legend"
+        name="show_legend_again"
+        onchange="db_edit_data('show_legend', 'settings_val', !this.checked, 'settings')">
+      <label for="show_legend_again">I don't want to see this again at startup</label><br>
+    </div>
+    <div id="div_legend_buttons">
+      <button class="button_regular"
+        onclick="close_menu()">Close</button>
     </div>
   </div>
 
   <div id="div_overlay"
     class="hidden"
     onclick=close_menu()>
+  </div>
+
+  <div id="div_ask_for_name_assocation">
+    <div>Personal Data</div>
+    <input id="input_first_name"
+      type="text"
+      placeholder="Your first name"></input>
+    <input id="input_last_name"
+      type="text"
+      placeholder="Your last name"></input>
+    <div>Association</div>
+    <input id="input_association"
+      type="text">
   </div>
 
   <div id="div_warning_message">
